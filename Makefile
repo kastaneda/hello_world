@@ -1,27 +1,29 @@
 
-all: composer.lock vendor/bootstrap vendor/jquery.min.js .htaccess
+all: composer.lock \
+	config.php \
+	web/vendor/bootstrap \
+	web/vendor/jquery.min.js \
+	web/.htaccess
 
-.htaccess:
-	cp .htaccess.dist .htaccess
+config.php: config.php.dist
+	cp config.php.dist config.php
 
-vendor/bootstrap:
-	mkdir -p vendor
+web/.htaccess: htaccess.dist
+	cp htaccess.dist web/.htaccess
+
+web/vendor/bootstrap:
+	mkdir -p web/vendor
 	wget http://twitter.github.com/bootstrap/assets/bootstrap.zip
-	unzip bootstrap.zip -d vendor/
+	unzip bootstrap.zip -d web/vendor/
 	rm bootstrap.zip
 
-vendor/jquery.min.js:
-	mkdir -p vendor
-	wget http://code.jquery.com/jquery-1.8.2.min.js -O vendor/jquery.min.js
+web/vendor/jquery.min.js:
+	mkdir -p web/vendor
+	wget http://code.jquery.com/jquery-1.8.2.min.js -O web/vendor/jquery.min.js
 
 composer.lock: composer.phar
 	./composer.phar install
 
 composer.phar:
 	wget http://getcomposer.org/installer -O - | php
-
-test: phpunit.xml
-	echo Test passed
-
-.PHONY: test
 

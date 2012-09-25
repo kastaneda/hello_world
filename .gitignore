@@ -1,4 +1,6 @@
 composer.phar
 composer.lock
 vendor/
-.htaccess
+web/vendor/
+web/.htaccess
+config.php
