@@ -3,6 +3,7 @@ all: composer.lock \
 	config.php \
 	web/vendor/bootstrap \
 	web/vendor/jquery.min.js \
+	web/vendor/html5shiv.js \
 	web/.htaccess
 
 config.php: config.php.dist
@@ -19,11 +20,29 @@ web/vendor/bootstrap:
 
 web/vendor/jquery.min.js:
 	mkdir -p web/vendor
-	wget http://code.jquery.com/jquery-1.8.2.min.js -O web/vendor/jquery.min.js
+	wget http://code.jquery.com/jquery-1.8.2.min.js \
+		-O web/vendor/jquery.min.js
 
-composer.lock: composer.phar
-	./composer.phar install
+web/vendor/html5shiv.js:
+	mkdir -p web/vendor
+	wget https://raw.github.com/aFarkas/html5shiv/master/dist/html5shiv.js \
+		-O web/vendor/html5shiv.js
+
+composer.lock: composer.json composer.phar
+	./composer.phar update
+	touch composer.lock
 
 composer.phar:
 	wget http://getcomposer.org/installer -O - | php
 
+clean:
+	rm -rf vendor/
+	rm -rf web/vendor/
+	rm composer.lock
+	rm composer.phar
+
+dist-clean: clean
+	rm web/.htaccess
+	rm config.php
+
+.PHONY: clean dist-clean

@@ -3,7 +3,10 @@ Hello, World!
 =============
 
 This is yet another Silex + Twig + Twitter Bootstrap application skeleton.
-Very short HOWTO:
+
+
+Very short HOWTO
+================
 
  1. `git clone` this repo.
  2. `make`
