@@ -35,6 +35,16 @@ composer.lock: composer.json composer.phar
 composer.phar:
 	wget http://getcomposer.org/installer -O - | php
 
+test: phpunit.xml vendor/symfony/browser-kit
+	phpunit
+
+phpunit.xml:
+	cp phpunit.xml.dist phpunit.xml
+
+vendor/symfony/browser-kit: composer.lock
+	./composer.phar update --dev
+	touch vendor/symfony/browser-kit/
+
 clean:
 	rm -rf vendor/
 	rm -rf web/vendor/
@@ -44,5 +54,6 @@ clean:
 dist-clean: clean
 	rm web/.htaccess
 	rm config.php
+	rm phpunit.xml
 
-.PHONY: clean dist-clean
+.PHONY: tests clean dist-clean

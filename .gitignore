@@ -4,3 +4,5 @@ vendor/
 web/vendor/
 web/.htaccess
 config.php
+phpunit.xml
+build/
