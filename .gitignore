@@ -1,4 +1,4 @@
 composer.phar
-vendor/
-web/vendor/
 composer.lock
+vendor/
+.htaccess

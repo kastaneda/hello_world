@@ -2,9 +2,9 @@
 
 $app = new Silex\Application();
 
-$app->get('/', function () {
-    return 'Hello world!';
+$app->get('/', function() {
+    return 'Hello world';
 });
 
-
 return $app;
+
