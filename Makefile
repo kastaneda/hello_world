@@ -57,4 +57,4 @@ dist-clean: clean
 	rm config.php
 	rm phpunit.xml
 
-.PHONY: tests clean dist-clean
+.PHONY: test clean dist-clean
