@@ -46,9 +46,7 @@ vendor/symfony/browser-kit: composer.lock
 	touch vendor/symfony/browser-kit/
 
 fix: php-cs-fixer.phar
-	./php-cs-fixer.phar fix src/
-	./php-cs-fixer.phar fix views/
-	./php-cs-fixer.phar fix tests/
+	./php-cs-fixer.phar fix .
 
 php-cs-fixer.phar:
 	wget http://cs.sensiolabs.org/get/php-cs-fixer.phar
