@@ -48,8 +48,9 @@ vendor/symfony/browser-kit: composer.lock
 clean:
 	rm -rf vendor/
 	rm -rf web/vendor/
-	rm composer.lock
-	rm composer.phar
+	rm -f composer.lock
+	rm -f composer.phar
+	rm -rf build/
 
 dist-clean: clean
 	rm web/.htaccess
