@@ -36,7 +36,7 @@ composer.phar:
 	wget http://getcomposer.org/installer -O - | php
 
 test: phpunit.xml vendor/symfony/browser-kit
-	phpunit
+	vendor/bin/phpunit
 
 phpunit.xml:
 	cp phpunit.xml.dist phpunit.xml
