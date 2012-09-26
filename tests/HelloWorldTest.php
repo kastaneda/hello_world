@@ -8,6 +8,7 @@ class HelloWorldTest extends WebTestCase
     {
         $app = require __DIR__ . '/../src/app.php';
         $app['session.test'] = true;
+
         return $app;
     }
 

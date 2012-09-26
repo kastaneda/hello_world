@@ -6,3 +6,4 @@ web/.htaccess
 config.php
 phpunit.xml
 build/
+php-cs-fixer.phar

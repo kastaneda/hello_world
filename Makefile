@@ -45,6 +45,15 @@ vendor/symfony/browser-kit: composer.lock
 	./composer.phar update --dev
 	touch vendor/symfony/browser-kit/
 
+fix: php-cs-fixer.phar
+	./php-cs-fixer.phar fix src/
+	./php-cs-fixer.phar fix views/
+	./php-cs-fixer.phar fix tests/
+
+php-cs-fixer.phar:
+	wget http://cs.sensiolabs.org/get/php-cs-fixer.phar
+	chmod +x php-cs-fixer.phar
+
 clean:
 	rm -rf vendor/
 	rm -rf web/vendor/
@@ -57,4 +66,4 @@ dist-clean: clean
 	rm config.php
 	rm phpunit.xml
 
-.PHONY: test clean dist-clean
+.PHONY: test fix clean dist-clean
