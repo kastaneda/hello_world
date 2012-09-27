@@ -3,7 +3,7 @@ all: composer.lock \
 	config.php \
 	web/vendor/bootstrap \
 	web/vendor/jquery.min.js \
-	web/vendor/html5shiv.js \
+	web/vendor/html5.js \
 	web/.htaccess
 
 config.php: config.php.dist
@@ -23,10 +23,10 @@ web/vendor/jquery.min.js:
 	wget http://code.jquery.com/jquery-1.8.2.min.js \
 		-O web/vendor/jquery.min.js
 
-web/vendor/html5shiv.js:
+web/vendor/html5.js:
 	mkdir -p web/vendor
-	wget https://raw.github.com/aFarkas/html5shiv/master/dist/html5shiv.js \
-		-O web/vendor/html5shiv.js
+	wget http://html5shim.googlecode.com/svn/trunk/html5.js \
+		-O web/vendor/html5.js
 
 composer.lock: composer.json composer.phar
 	./composer.phar update
